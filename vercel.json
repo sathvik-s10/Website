@@ -1,4 +1,3 @@
 {
-  "outputDirectory": "public",
-  "public": false
+  "outputDirectory": "public"
 }

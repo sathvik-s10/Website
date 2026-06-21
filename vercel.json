@@ -1,3 +1,5 @@
 {
-  "outputDirectory": "public"
+  "buildCommand": "echo 'Static build'",
+  "outputDirectory": "./public",
+  "framework": "static"
 }

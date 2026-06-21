@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade Management System - Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-box">
+            <h1>Grade Management System</h1>
+            <p class="subtitle">Login to your account</p>
+
+            <form id="loginForm" onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" placeholder="Enter username" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter password" required>
+                </div>
+
+                <button type="submit" class="btn btn-login">Login</button>
+            </form>
+
+            <div id="errorMessage" class="error-message"></div>
+
+            <div class="demo-credentials">
+                <h3>Demo Credentials</h3>
+                <p><strong>Admin Account:</strong><br>Username: <code>admin</code><br>Password: <code>admin123</code></p>
+                <p><strong>Student Account:</strong><br>Username: <code>student1</code><br>Password: <code>pass123</code></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+</body>
+</html>

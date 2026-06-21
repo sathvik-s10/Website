@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Grade Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">Grade Management</div>
+            <div class="nav-right">
+                <span class="user-info">Admin: <strong id="adminName"></strong></span>
+                <button onclick="logout()" class="btn btn-logout">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="dashboard">
+            <aside class="sidebar">
+                <div class="menu">
+                    <button class="menu-item active" onclick="showSection('classes')">📚 Classes</button>
+                    <button class="menu-item" onclick="showSection('students')">👥 Students</button>
+                    <button class="menu-item" onclick="showSection('grades')">📊 Assign Grades</button>
+                </div>
+            </aside>
+
+            <main class="content">
+                <!-- Classes Section -->
+                <section id="classes" class="section active">
+                    <h2>Manage Classes</h2>
+                    
+                    <div class="form-card">
+                        <h3>Create New Class</h3>
+                        <div class="form-row">
+                            <input type="text" id="className" placeholder="Class Name (e.g., Math 101)" required>
+                            <button onclick="addClass()" class="btn btn-primary">Create Class</button>
+                        </div>
+                    </div>
+
+                    <div class="table-card">
+                        <h3>Classes List</h3>
+                        <table id="classesTable">
+                            <thead>
+                                <tr>
+                                    <th>Class Name</th>
+                                    <th>Students</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+
+                    <div class="table-card">
+                        <h3>Manage Grade Categories</h3>
+                        <div class="form-row">
+                            <select id="categoryClassSelect" onchange="loadCategoriesForClass()">
+                                <option value="">Select a class</option>
+                            </select>
+                            <input type="text" id="categoryName" placeholder="Category Name (e.g., Homework)">
+                            <input type="number" id="categoryWeight" placeholder="Weightage %" min="0" max="100">
+                            <button onclick="addCategory()" class="btn btn-primary">Add Category</button>
+                        </div>
+                        <table id="categoriesTable">
+                            <thead>
+                                <tr>
+                                    <th>Category</th>
+                                    <th>Weightage</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Students Section -->
+                <section id="students" class="section">
+                    <h2>Manage Students</h2>
+                    
+                    <div class="form-card">
+                        <h3>Add New Student</h3>
+                        <div class="form-row">
+                            <input type="text" id="studentName" placeholder="Student Name" required>
+                            <input type="email" id="studentEmail" placeholder="Email" required>
+                            <input type="text" id="studentId" placeholder="Student ID" required>
+                            <button onclick="addStudent()" class="btn btn-primary">Add Student</button>
+                        </div>
+                    </div>
+
+                    <div class="table-card">
+                        <h3>Students List</h3>
+                        <table id="studentsTable">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Student ID</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Grades Section -->
+                <section id="grades" class="section">
+                    <h2>Assign Grades</h2>
+                    
+                    <div class="form-card">
+                        <h3>Assign Grade to Student</h3>
+                        <div class="form-grid">
+                            <div>
+                                <label>Class</label>
+                                <select id="gradeClassSelect" onchange="loadStudentsAndCategoriesForClass()">
+                                    <option value="">Select a class</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label>Student</label>
+                                <select id="gradeStudentSelect">
+                                    <option value="">Select a student</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label>Category</label>
+                                <select id="gradeCategory">
+                                    <option value="">Select a category</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label>Assignment</label>
+                                <input type="text" id="assignmentName" placeholder="e.g., Quiz 1">
+                            </div>
+                            <div>
+                                <label>Score</label>
+                                <input type="number" id="scoreValue" min="0" placeholder="Score earned">
+                            </div>
+                            <div>
+                                <label>Out of</label>
+                                <input type="number" id="maxScore" min="1" placeholder="Total points (e.g., 100)">
+                            </div>
+                        </div>
+                        <button onclick="assignGrade()" class="btn btn-primary">Assign Grade</button>
+                    </div>
+
+                    <div class="table-card">
+                        <h3>Grades Overview</h3>
+                        <table id="gradesTable">
+                            <thead>
+                                <tr>
+                                    <th>Class</th>
+                                    <th>Student</th>
+                                    <th>Assignment</th>
+                                    <th>Category</th>
+                                    <th>Score</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>

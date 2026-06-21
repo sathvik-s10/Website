@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard - Grade Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">Grade Management</div>
+            <div class="nav-right">
+                <span class="user-info">Student: <strong id="studentName"></strong></span>
+                <button onclick="logout()" class="btn btn-logout">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="student-dashboard">
+            <h2>My Classes & Grades</h2>
+
+            <div class="classes-container">
+                <div class="classes-list">
+                    <h3>Classes</h3>
+                    <div id="classesListContainer">
+                        <!-- Classes will be populated here -->
+                    </div>
+                </div>
+
+                <div class="assignments-detail">
+                    <div id="assignmentsPanel">
+                        <p style="text-align: center; color: #999; padding: 2rem;">Select a class to view assignments</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="noClasses" class="no-data">
+                <p>No grades assigned yet. Check back soon!</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+    <script src="student.js"></script>
+</body>
+</html>

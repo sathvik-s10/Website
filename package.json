@@ -1,0 +1,17 @@
+{
+  "name": "my-website",
+  "version": "1.0.0",
+  "description": "A modern landing page with Node.js backend",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node src/server.js"
+  },
+  "keywords": ["website", "landing-page", "express"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5"
+  }
+}
